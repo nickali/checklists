@@ -37,7 +37,7 @@
 
 ### HTML testing
 
-* [ ] **W3C compliant:**:  Run pages through W3C validato.
+* [ ] **W3C compliance:**:  Run pages through W3C validation.
 * [ ] **Desktop Browsers:**  Test pages on current (and back one version) of current desktop browsers
 * [ ] **Mobile Browsers:**   Test pages on current (and back on version) current mobile browsers
 * [ ] **Link checker:**  Verify no broken links.
@@ -96,7 +96,7 @@
 —
 
 ## Copy
-* [ ] **Text:** Verify all Lorem Ipsum removed.
+* [ ] **Text:** Replace all Lorem Ipsum with real copy.
 
 —
 
@@ -180,16 +180,16 @@
 
 * [ ] **Backups:** Verify backup and restore systems functional.
 * [ ] **Versioning:** Verify production code branched or tagged in version control system.
-* [ ] **Contact Forms:** Verify CAPTCHA functionality and information emailed or pushed to CRM.
-* [ ] **Newsletter Forms** Verify signup forms functional. 
-* [ ] **Comments:** Verify moderation notices sent to appropriate email addresses
-* [ ] **Search:** Verify CMS search or Google custom search returning correct results.
+* [ ] **Contact Forms:** Verify CAPTCHA functionality, required fields, validation, and information emailed or routed to CRM.
+* [ ] **Newsletter Forms** Verify signup forms functional and routed correctly. 
+* [ ] **Comments:** Verify moderation notices sent to appropriate email addresses. 
+* [ ] **Search:** Verify CMS search or Google custom search traversing only necessary data, and returning correct results.
 * [ ] **API Configuration:** Verify live domain witelisted for third party intergrations or SaaS tools.
 * [ ] **Dev Domains:** Verify database and assets not referencing dev, staging, or QA environments.
 * [ ] **DNS:** Verify proper set up.
 * [ ] **Conversions & Funnels:** Verify analytics tools collecting and registering visitor clickstream.
 * [ ] **Payment System:** Verify test mode off and transactions work. 
-* [ ] **www / non-www:** Verify non-canonical redirects to canonical preserving URL. 
+* [ ] **www / non-www:** Verify non-canonical redirects to canonical and preserving URL. 
 
 —
 
