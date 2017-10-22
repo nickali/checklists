@@ -152,9 +152,10 @@
 
 * [ ] **Indexing:** Enable search engines to index site.
 * [ ] **Tag Manager:** Verify proper installation.
-* [ ] **Analytics & Conversion:**  Google Analytics or similar tools is installed and correctly configured.
+* [ ] **Analytics & Conversion:**  Google Analytics and similar tools installed,correctly configured, and registering data. 
 * [ ] **Ad Pixels:** Verify all ad pixels installed and registering.
 * [ ] **Heatmaps**: Verify installation of SaaS tool.
+* [ ] **A/B Tests**: Verify installation, configuration, and data flow to third party tools.
 * [ ] **Chat:**: Verify chat installation.
 * [ ] **Headings logic:**  Heading text helps to understand the content in the current page.
 * [ ] **Sitemap XML:** Site, image, and video XMLs generated and submitted to Google Webmaster Tools and similar tools
@@ -190,15 +191,6 @@
 * [ ] **Conversions & Funnels:** Verify analytics tools collecting and registering visitor clickstream.
 * [ ] **Payment System:** Verify test mode off and transactions work. 
 * [ ] **www / non-www:** Verify non-canonical redirects to canonical and preserving URL. 
-
-—
-
-## Post Deployment
-
-* [ ] **Baselines:** Create baselines for appropriate metrics like conversions
-* [ ] ​
-
-social widgets
 
 
 —
