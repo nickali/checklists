@@ -1,9 +1,13 @@
-# Website Checklist - WIP
+# Website Checklist
 
-## Front-End Checklist
+## HTML
+### Best Practices
+* [ ] **HTML5 Semantic Elements:**  Use HTML5 semantic elements appropriately
+* [ ] **Error pages:**  Create 404 page and 5xx error pages. 5xx error pages are handled by web server.
+* [ ] **Clean up comments:**  Remove unnecessary comments created when building site.
+* [ ] **AMP / Instant Articles:** Verify proper generation.
 
 ### Head
-
 * [ ] **Doctype:** Set Doctype to HTML5 and is at the top of all HTML pages.
 * [ ] **Charset:** Set to UTF-8.
 * [ ] **X-UA-Compatible:**  Set X-UA-Compatible meta tag.
@@ -11,76 +15,54 @@
 * [ ] **Favicons:**  Set favicon file location.
 * [ ] **Apple Touch & Android Icons:**  Set Apple touch & Android icons.
 * [ ] **Canonical:**  Set ``rel=“canonical”``.
-* [ ] **Smart App Banner:** Set app-id and app-argument
-
-### HTML tags
-
 * [ ] **Language tag:**  Set language tag.
 * [ ] **Conditional comments:**  Set conditional comments for IE if necessary.
 * [ ] **RSS feed:**  Set RSS URL if needed.
-
-### Social meta
-
+* [ ] **Smart App Banner:** Set app-id and app-argument
 * [ ] **Facebook Open Graph:** Set including images.
 * [ ] **Twitter Card:** Set including images.
 
-—
-
-## HTML
-
-### Best practices
-
-* [ ] **HTML5 Semantic Elements:**  Use HTML5 semantic elements appropriately
-* [ ] **Error pages:**  Create 404 page and 5xx error pages. 5xx error pages are handled by web server.
-* [ ] **Clean up comments:**  Remove unnecessary comments created when building site.
-* [ ] **AMP / Instant Articles:** Verify proper generation.
-
-### HTML testing
-
-* [ ] **W3C compliance:**:  Run pages through W3C validation.
+### HTML Testing
+* [ ] **W3C Compliance:**:  Run pages through W3C validation.
 * [ ] **Desktop Browsers:**  Test pages on current (and back one version) of current desktop browsers
 * [ ] **Mobile Browsers:**   Test pages on current (and back on version) current mobile browsers
-* [ ] **Link checker:**  Verify no broken links.
-* [ ] **Adblockers test:**  Verify adblockers do not break pages.
+* [ ] **Link Checker:**  Verify no broken links.
+* [ ] **Adblockers Test:**  Verify adblockers do not break pages.
 
 —
 
 ## Fonts
-
-* [ ] **Webfont format:**  Convert fonts to WOFF, WOFF2 and TTF files.
+### Best Practices
+* [ ] **Webfont Formats:**  Convert fonts to WOFF, WOFF2 and TTF files.
 * [ ] **Fall-back Typefaces:**  List 2 or more for webfonts.
 * [ ] **Service Configuration:** Verify live domain white-listed for hosted font services.
 
 —
 
 ## CSS
-
+### Best Practices
 * [ ] **Preprocessors:**  Verify no links to Deb preprocessor paths. 
 * [ ] **Breakpoints:** Verify content, flow, and UX work as intended at different breakpoints.
 * [ ] **CSS Print:**  Set print stylesheet on each page.
 * [ ] **Unique ID:**  Use unique IDs per page.
 * [ ] **Reset CSS:** Use CSS reset stylesheet.
-* [ ] **JS prefix:**  Name classes or IDs with **js-** when modified by JavaScript and not by CSS files.
-* [ ] **CSS embed or line:**  Remove all embedded or inline CSS.
-* [ ] **Vendor prefixes:**  Use CSS vendor prefixes depending on required browser support compatibility.
+* [ ] **JavaScript Prefix:**  Name classes or IDs with **js-** when modified by JavaScript and not by CSS files.
+* [ ] **Inline / Embedded CSS:**  Remove all embedded or inline CSS.
+* [ ] **Vendor Prefixes:**  Use CSS vendor prefixes depending on required browser support compatibility.
 
 ### Performance
-
 - [ ] **Concatenation:**  Concatenate CSS files.
 - [ ] **Minification:**  Minify CSS files.
 - [ ] **Non-blocking:**  Verify CSS files are non-blocking.
 - [ ] **Unused CSS:**  Cleanup CSS.
 
-### CSS testing
-
+### CSS Testing
 * [ ] **CSS Validator:** Verify all CSS is valid.
 
 —
 
 ## Images / Videos
-
-### Best practices
-
+### Best Practices
 * [ ] **Placeholder Images:** Verify all removed
 * [ ] **Stock Images:** Verify watermarked images replaced with licensed versions. 
 * [ ] **Optimization:**  Verify all images are optimized for respective browsers.
@@ -96,14 +78,13 @@
 —
 
 ## Copy
+### Best Practices
 * [ ] **Text:** Replace all Lorem Ipsum with real copy.
 
 —
 
 ## JavaScript
-
-### Best practices
-
+### Best Practices
 * [ ] **JavaScript Inline:**  Remove or minimize inline JavaScript.
 * [ ] **Concatenation:**   Concatenate Javascript files.
 * [ ] **Minification:** Minify JavaScript files.
@@ -112,13 +93,12 @@
 * [ ] **Footer Load** Place scripts in footer of page.
 
 ### JavaScript testing
-
 * [ ] **ESLint:** Verify JavaScript with ESLint or similar tool.
 
 —
 
 ## Security
-
+### Best Practices
 * [ ] **HTTPS:** User HTTPS
 * [ ] **HSTS:** Set HTTP Strict Transport Security parameter on web server.
 * [ ] **Cross Site Request Forgery (CSRF):** Scrub and verify inputs, verify headers and use tokens.
@@ -134,9 +114,7 @@
 —
 
 ## Performance
-
 ### Best practices
-
 - [ ] **Minified:** Minimize HTML and enable gzip type compression on web server.
 - [ ] **Lazy loading:** Load images, scripts, and CSS files as needed, not on load.
 - [ ] **Cookie size:** Minimize size of cookies.
@@ -149,7 +127,7 @@
 —
 
 ## SEO
-
+### Best Practices
 * [ ] **Indexing:** Enable search engines to index site.
 * [ ] **Tag Manager:** Verify proper installation.
 * [ ] **Analytics & Conversion:**  Google Analytics and similar tools installed,correctly configured, and registering data. 
@@ -170,7 +148,7 @@
 —
 
 ## Legal
-
+### Best Practices
 * [ ] **Privacy Policy:**  Verify link visible in footer and page exists.
 * [ ] **Terms of Service:**  Verify link visible in footer and page exists
 * [ ] **GDPR Compliance:** Verify consent notice visible.
@@ -178,7 +156,7 @@
 —
 
 ## Prelaunch
-
+### Best Practices
 * [ ] **Backups:** Verify backup and restore systems functional.
 * [ ] **Versioning:** Verify production code branched or tagged in version control system.
 * [ ] **Contact Forms:** Verify CAPTCHA functionality, required fields, validation, and information emailed or routed to CRM.
@@ -192,11 +170,10 @@
 * [ ] **Payment System:** Verify test mode off and transactions work. 
 * [ ] **www / non-www:** Verify non-canonical redirects to canonical and preserving URL. 
 
-
 —
 
 ## WordPress
-
+### Best Practices
 * [ ] **.htaccess:** Verify file contains correct settings. 
 * [ ] **Navigation** Verify navigation works from all pages
 * [ ] **Pagination** Verify next and previous links go to right content
