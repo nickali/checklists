@@ -4,8 +4,6 @@
 
 ### Best Practices
 
-* **Development Environment** - Create an environment to prototype and build the website.
-* **Install Folder** - Place WordPress files in web server accessible folder.
 * **Web Server Configuration** - Point to root WordPress folder. URL should not contain 'WordPress' anywhere.
 * **Database Table Prefix** - Change from wp_. 
 * **Database Connection** - Change to connect to dev database. 
@@ -26,8 +24,8 @@
 * **Memory Limit** - Set memory limit to maximum allowed by server or web host.
 * **Auto Save** - Set number of seconds between auto-saves.
 * **Multisite** - Enable if needed.
-* **Debug Flag**- Enable during development
-* **Cache** - Disable during development
+* **Debug Flag**- Enable during development.
+* **Cache** - Disable during development.
 * **Search Engine Visibility** - Disable development environment from being crawled by seach engines.
 * **Sample Config File** - Remove wp-config-sample.php.
 * **Version Control** - Set up repository to store and track files and changes.
@@ -39,13 +37,53 @@
 ### Best Practices
 
 * **Login Page** - Update with site brand.
-* **Underlined Links** - Use to help with usability and accessibility.
+* **Underlined Links** - Underline to help with usability and accessibility.
 * **Visited vs Unvisited Link Colors** - Use different colors for usability.
 * **Hover / Focus / Active Links** - Visually distingush when in hover, focus, or active states.
 * **Color Contrast** - Contrast ratio should be minimum 4.5:1 for WCAG 2.0 AA compliance.
 * **Form Placeholder Text** - Set placeholder attribute in input elements.
-* **Descriptive Buttons** - Use pattern Verb Noun (Upload File) instead of Ok or Submit.
+* **Descriptive Buttons** - Use pattern Verb Noun, like Upload File, instead of Ok or Submit.
 
+
+------
+
+## Coding
+
+### Best Practices
+
+- **Core Files** - Never modify any WordPress core files.
+- **Database Queries** - Don't use `mysqli_query()`, instead use `$wpdb` object or `WP_Query`.
+- **'DISTINCT', 'GROUPBY'** - Avoid cross-table queries and any other operations which create temporary tables.
+- **Query Result Limits** - Add maximum number of results returned to prevent killing database.
+- **Indexes** - Verify indexes are used in queries by running `EXPLAIN` statement.
+- **Address Bar** - Only show encrypted session values in address bar.
+
+### Plugins
+
+- **Mail** - Use `wp_mail()` instead of PHP `mail()` function.
+- **Clean Inputs / Outputs** - Sanitize/escape all inputs and outputs to prevent Cross-Site Scripting (XSS) problems.
+- **Nonces** - Protect against Cross-Site Request Forgery (CSRF) when expecting user submitted data.
+- **Data Validation** - Use JavaScript, built-in PHP functions, core WordPress functions, and/or custom functions to validate inputs before processing.
+- **Cache DOM Queries** - Cache jQuery selectors for re-use on page.
+- **Event Delegation** - Reduce individual element event handling by using event delegation instead.
+- **Deactivate / Uninstall Hooks** - Implement to cleanup data.
+- **Prefix** - Add plugin name abbreviation as prefix to variables, functions, and classes.
+- **Folder Structure** - Separate into includes, admin, and public folders.
+- **Roles and Rights** - Verify authentication and authorization of user when plugin called.
+- **Settings / Options API** - Use to build admin pages.
+
+### Themes
+
+- **Child Themes** - Create child theme if modifiying existing theme allows for child themes and changes are not extensive.
+- **File Structure** - Separate into include, asset, and template parts folders. 
+- **Template Tags** - Instead of hardcoding, use template tags and conditional tags as much as possible.
+- **Enqueue Stylesheets** - Use `wp_enqueue_style` and template tags for directory paths instead of hardcoding links to CSS files.
+- **Enqueue JavaScript** - Use `wp_enqueue_scripts` and template tags for directory paths instead of hardcoding links to JavaScript files.
+- **File Naming** - Use standard WordPress naming hierarchy. 
+- **Theme Unit Test** - Use WordPress Theme Unit Test to visually inspect and test theme and test using Theme Check plugin even though theme will not be submitted to WordPress theme directory.
+- **Screenshot** - Create screenshot with look and feel of theme.
+- **Jetpack Infinite Scroll** - Support if needed.
+- **'$content_width'** - Set.
 
 
 ## Theme HTML
@@ -53,12 +91,11 @@
 ### Best Practices
 * **HTML5 Semantic Elements** -  Use HTML5 semantic elements appropriately.
 * **Error pages** -  Create 404 page and 5xx error pages. 5xx error pages can be handled by web server.
-* **Clean up comments** -  Remove unnecessary comments created when building site.
 * **AMP / Instant Articles** - Generate stripped down HTML for Google and Facebook.
 * **Labels / Inputs** - Connect labels to inputs using `for` attribute in labels.
 
 ### Head
-* **Doctype** - Set Doctype to HTML5 and put at the top of all HTML pages.
+* **Doctype** - Set Doctype to HTML5 and put at the top of header.
 * **Charset** - Set to UTF-8.
 * **X-UA-Compatible** -  Set for backwards IE compatibility.
 * **Viewport** -  Set viewport.
@@ -67,8 +104,8 @@
 * **Canonical** -  Set ``rel=“canonical”``.
 * **Language tag** -  Set language tag.
 * **Conditional comments** -  Set conditional comments for IE.
-* **RSS feed** -  Set RSS URL.
-* **Smart App Banner** - Set app-id and app-argument.
+* **RSS feed** -  Set RSS URL or remove.
+* **Smart App Banner** - Set app-id and app-argument if app available from app store.
 * **Facebook Open Graph** - Set and link to images.
 * **Twitter Card** - Set and link to images.
 
@@ -85,7 +122,7 @@ ___
 ### Best Practices
 * **Webfont Formats** -  Convert fonts to WOFF, WOFF2 and TTF file formats.
 * **Fall-back Typefaces** -  List 2 or more in case desired fonts not available.
-* **Service Configuration** - Set live domain to be white-listed with hosted font services.
+* **Service Configuration** - Set live domain and development IPs to be white-listed with hosted font services.
 
 ___
 
@@ -99,7 +136,7 @@ ___
 * **JavaScript Prefix** -  Name classes or IDs with **js-** when modified by JavaScript and not by CSS files.
 * **Inline / Embedded CSS** -  Remove or minimize embedded or inline CSS.
 * **Vendor Prefixes** -  Use CSS vendor prefixes depending on required browser support compatibility.
-* **File Layout** - Order of properties display > positioning > box model > colors and typography > other.
+* **Stylesheet Layout** - Order of properties display > positioning > box model > colors and typography > other.
 * **Media Queries** - Place at bottom of stylesheet.
 * **Magic Numbers** - Avoid.
 * **Main Stylesheet Header** - Include theme name, author, description, version, license, license URI, and text domain.
@@ -108,7 +145,7 @@ ___
 ### Performance
 * **Concatenation** -  Concatenate CSS files.
 * **Minification** -  Minify CSS files.
-* **Non-blocking** -  Verify CSS files are non-blocking.
+* **Non-blocking** -  Verify CSS files are non-blocking in theme template.
 * **Unused CSS** -  Cleanup CSS.
 
 ### CSS Testing
@@ -126,66 +163,9 @@ ___
 * **Alternative text** -  All ``<img>`` have an alternative text which describe the image visually.
 * **Lazy loading** -  Load images on scroll or as needed.
 * **Social Thumbnails**: Generate Facebook/Twitter/LinkedIn thumbnails for all pages.
-* **Flexible Video** -  Videos resize appropriately on different browsers and devices.
+* **Responsive Video Players** -  Videos resize appropriately on different browsers and devices.
 * **Video Controls** - Show playblack, pause, and mute controls.
 * **Logo** - Set logo link to return visitor to homepage.
-
-___
-
-## Copy
-### Best Practices
-* **Text** - Replace all Lorem Ipsum with real copy.
-
-------
-
-## Coding
-
-### Best Practices
-
-- **Core Files** - Never modify any WordPress core files.
-- **Database Queries** - Don't use `mysqli_query()` instead use `$wpdb` object or `WP_Query`.
-- **'DISTINCT', 'GROUPBY'** - Avoid cross-table queries and any other operations which create temporary tables.
-- **Query Result Limits** - Add maximum number of results returned to prevent killing database.
-- **Indexes** - Verify indexes are used in queries by running `EXPLAIN` statement.
-- **Address Bar** - Only show encrypted session values in address bar.
-
-### Plugins
-
-- **Mail** - Use `wp_mail()` instead of PHP `mail()` function.
-- **Clean Inputs / Outputs** - Sanitize/escape all inputs and outputs to prevent Cross-Site Scripting (XSS) problems.
-- **Nonces** - Use when expecting user submitted data to protect against Cross-Site Request Forgery (CSRF).
-- **Data Validation** - Use JavaScript, built-in PHP functions, core WordPress functions, and/or custom functions to validate inputs before processing.
-- **Cache DOM Queries** - Cache jQuery selectors for re-use on page.
-- **Event Delegation** - Reduce individual element event handling by using event delegation instead.
-- **Deactivate / Uninstall Hooks** - Implement to cleanup data.
-- **Prefix** - Add plugin-specific prefix to variables, functions, and classes.
-- **Folder Structure** - Separate into includes, admin, and public folders.
-- **Roles and Rights** - Verify authentication and authorization of user.
-- **Settings / Options API** - Use to build admin pages.
-
-### Themes
-
-- **Child Themes** - Create child theme if modifiying existing theme allows for child themes and changes are not extensive.
-
-- **File Structure** - Separate into include, asset, and template parts folders. 
-
-- **Template Tags** - Instead of hardcoding, use template tags and conditional tags as much as possible.
-
-- **Enqueue Stylesheets** - Use `wp_enqueue_style` and template tags for directory paths instead of hardcoding links to CSS files.
-
-- **Enqueue JavaScript** - Use `wp_enqueue_scripts` and template tags for directory paths instead of hardcoding links to JavaScript files.
-
-- **File Naming** - Use standard WordPress naming hierarchy. 
-
-- **Theme Unit Test** - Use WordPress Theme Unit Test to visually inspect and test theme and test using Theme Check plugin even though theme will not be submitted to WordPress theme directory.
-
-- **Screenshot** - Create screenshot with look and feel of theme.
-
-- **Jetpack Infinite Scroll** - Support if needed.
-
-- **'$content_width'** - Set.
-
-  ​
 
 ------
 
@@ -193,7 +173,7 @@ ___
 
 ### Best Practices
 * **jQuery Version**- Do not add newer jQuery libraries if available.
-* **'$' Shortcut** - Use with IIFE.
+* **'$' Shortcut** - Use IIFE to create.
 * **JavaScript Inline** -  Remove or minimize inline JavaScript.
 * **Concatenation** -   Concatenate Javascript files.
 * **Minification** - Minify JavaScript files.
@@ -207,7 +187,16 @@ ___
 
 ___
 
+## Copy
+
+### Best Practices
+
+- **Text** - Replace all Lorem Ipsum with real copy.
+
+------
+
 ## Security
+
 ### Best Practices
 * **HTTPS** - Use HTTPS.
 * **HSTS** - Set HTTP Strict Transport Security parameter on web server.
@@ -248,7 +237,7 @@ ___
 * **Title** -  Use unique title tag used on each page.
 * **Description** -  Set unique meta description on each page.
 * **301 Redirects** - Return 301 for moved content
-* **Redirections** - Use Rewrite Rules Inspector and check redirections.
+* **Redirections** - Use Rewrite Rules Inspector plugin and check redirections.
 * **Title Attribute** - Set ``title`` attribute for all links.
 * **Social Widgets** - Connect social accounts and set up to show buttons / links in right places.
 
@@ -271,7 +260,7 @@ ___
 * **Contact Forms** - Set CAPTCHA functionality, required fields, validation, and verify information emailed or routed to CRM.
 * **Newsletter Forms** Check signup forms functionality and verify user information pushed to third-party tool. 
 * **Comments** - Set moderation notices be sent to appropriate email addresses. 
-* **Search** - Verify CMS search or Google custom search traversing only necessary data, and returning correct results.
+* **Search** - Verify WordPress search or Google custom search traversing only necessary data, and returning correct results.
 * **API Configuration** - Set live domain to be witelisted with third party intergrations or SaaS tools.
 * **Dev Domains** - Verify database and assets not referencing dev, staging, or QA environments.
 * **DNS** - Verify proper set up.
@@ -281,18 +270,16 @@ ___
 * **Debug Mode** - Disable in wp_config.php. 
 * **WordPress Address (URL)** - Update to production URL in wp-config.php or Settings > General
 * **Site Address (URL)** - Update to production URL in wp-config.php or Settings > General
-* **Plugin / Theme Auto-Updates** - Update username / API keys.
-* **Gravatars** - Set up user accounts with Gravatars.
+* **Plugin / Theme Auto-Updates** - Update usernames, passwords, and API keys.
+* **Gravatars** - Set up user accounts with Gravatars if necessary.
 * **Pagination** - Verify 'next' and 'previous' display right content in respective categories.
 * **Folder and File Permissions** - Verify folder contents are not viewable and individual PHP files cannot be downloaded. 
 * **Upload Permissions** - Verify images and attachments can be uploaded via backend and downloaded by non-logged in users. 
 * **Spam Protection** - Enable Akismet plugin and delete old spam comments.
-* **Post Revisions** - Limit number of post revisions saved.
+* **Post Revisions** - Limit number of post revisions saved and delete post revisions generated during development.
 * **Trash** - Set number of days when deleted content can be removed from database.
-* **Cache** - Enable default WordPress caching or a third-party plugin
-
-
-- **Admin Email** - Set to individual responsible for website post-launch.
+* **Cache** - Enable default WordPress caching or a third-party plugin.
+* **Admin Email** - Set to individual responsible for website post-launch.
 - **Search Engine Visibility** - Enable search engines to index site.
 
 ------
@@ -301,7 +288,7 @@ ___
 
 ### Best Practices
 
-- **Update Files** - Set auto-update for core, themes, and plugins or create monthly or quarter plan to test and roll out updates, especially if custom functionality was built for the website. 
+- **Update Files** - Set auto-update for core, themes, and plugins or create monthly or quarterly plan to test and roll out updates, especially if custom functionality was built for the website. 
 - **Documentation** - Compile website, webhost, S/FTP, and social logins, along with expiration dates on third-party services, SSL, stock photography, etc, and share with appropriate individuals.
 - **Error Logs** - Check web server logs for PHP errors on a regularly scheduled basis. 
 - **Version Control** - Transfer ownership of repository to client if necessary.
