@@ -103,6 +103,7 @@ ___
 * **Media Queries** - Place at bottom of stylesheet.
 * **Magic Numbers** - Avoid.
 * **Main Stylesheet Header** - Include theme name, author, description, version, license, license URI, and text domain.
+* **Sticky Posts** - Set to be visually distinguishable. 
 
 ### Performance
 * **Concatenation** -  Concatenate CSS files.
@@ -143,12 +144,15 @@ ___
 
 - **Core Files** - Never modify any WordPress core files.
 - **Database Queries** - Don't use `mysqli_query()` instead use `$wpdb` object or `WP_Query`.
+- **'DISTINCT', 'GROUPBY'** - Avoid cross-table queries and any other operations which create temporary tables.
+- **Query Result Limits** - Add maximum number of results returned to prevent killing database.
+- **Indexes** - Verify indexes are used in queries by running `EXPLAIN` statement.
 - **Address Bar** - Only show encrypted session values in address bar.
 
 ### Plugins
 
 - **Mail** - Use `wp_mail()` instead of PHP `mail()` function.
-- **Inputs** - Sanitize/escape all inputs and outputs to prevent Cross-Site Scripting (XSS) problems.
+- **Clean Inputs / Outputs** - Sanitize/escape all inputs and outputs to prevent Cross-Site Scripting (XSS) problems.
 - **Nonces** - Use when expecting user submitted data to protect against Cross-Site Request Forgery (CSRF).
 - **Data Validation** - Use JavaScript, built-in PHP functions, core WordPress functions, and/or custom functions to validate inputs before processing.
 - **Cache DOM Queries** - Cache jQuery selectors for re-use on page.
@@ -157,6 +161,7 @@ ___
 - **Prefix** - Add plugin-specific prefix to variables, functions, and classes.
 - **Folder Structure** - Separate into includes, admin, and public folders.
 - **Roles and Rights** - Verify authentication and authorization of user.
+- **Settings / Options API** - Use to build admin pages.
 
 ### Themes
 
@@ -172,9 +177,13 @@ ___
 
 - **File Naming** - Use standard WordPress naming hierarchy. 
 
-- **Theme Unit Test** - Use WordPress Theme Unit Test to visually inspect and test theme and test using Theme Check plugin.
+- **Theme Unit Test** - Use WordPress Theme Unit Test to visually inspect and test theme and test using Theme Check plugin even though theme will not be submitted to WordPress theme directory.
 
 - **Screenshot** - Create screenshot with look and feel of theme.
+
+- **Jetpack Infinite Scroll** - Support if needed.
+
+- **'$content_width'** - Set.
 
   ​
 
@@ -183,12 +192,15 @@ ___
 ## Theme JavaScript
 
 ### Best Practices
+* **jQuery Version**- Do not add newer jQuery libraries if available.
+* **'$' Shortcut** - Use with IIFE.
 * **JavaScript Inline** -  Remove or minimize inline JavaScript.
 * **Concatenation** -   Concatenate Javascript files.
 * **Minification** - Minify JavaScript files.
 * **Non-blocking** -  Load JavaScript files asynchronously.
 * **Modernizr** -  Use Modernizr or similar tool to test for specific browser features.
-* **Footer Load** Place scripts in footer of page.
+* **Footer Load** - Place scripts in footer of page.
+* **eval()** - Never, ever use.
 
 ### JavaScript testing
 * **ESLint** - Verify JavaScript with ESLint or similar tool.
@@ -203,6 +215,7 @@ ___
 * **Login Limits** - Require ‘human’ verification after a defined number of failed tries.
 * **System Information** - Verify application, server, or database version or connection information not publicly viewable.
 * **SSL** - Verify certificate not expiring. 
+* **Exploit Scanner** - Run plugin on site.
 
 ___
 
@@ -235,6 +248,7 @@ ___
 * **Title** -  Use unique title tag used on each page.
 * **Description** -  Set unique meta description on each page.
 * **301 Redirects** - Return 301 for moved content
+* **Redirections** - Use Rewrite Rules Inspector and check redirections.
 * **Title Attribute** - Set ``title`` attribute for all links.
 * **Social Widgets** - Connect social accounts and set up to show buttons / links in right places.
 
