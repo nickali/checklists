@@ -39,7 +39,12 @@
 ### Best Practices
 
 * **Login Page** - Update with site brand.
-* ​
+* **Underlined Links** - Use to help with usability and accessibility.
+* **Visited vs Unvisited Link Colors** - Use different colors for usability.
+* **Hover / Focus / Active Links** - Visually distingush when in hover, focus, or active states.
+* **Color Contrast** - Contrast ratio should be minimum 4.5:1 for WCAG 2.0 AA compliance.
+* **Form Placeholder Text** - Set placeholder attribute in input elements.
+* **Descriptive Buttons** - Use pattern Verb Noun (Upload File) instead of Ok or Submit.
 
 
 
@@ -50,6 +55,7 @@
 * **Error pages** -  Create 404 page and 5xx error pages. 5xx error pages can be handled by web server.
 * **Clean up comments** -  Remove unnecessary comments created when building site.
 * **AMP / Instant Articles** - Generate stripped down HTML for Google and Facebook.
+* **Labels / Inputs** - Connect labels to inputs using `for` attribute in labels.
 
 ### Head
 * **Doctype** - Set Doctype to HTML5 and put at the top of all HTML pages.
@@ -137,13 +143,26 @@ ___
 
 - **Core Files** - Never modify any WordPress core files.
 - **Database Queries** - Don't use `mysqli_query()` instead use `$wpdb` object or `WP_Query`.
+- **Address Bar** - Only show encrypted session values in address bar.
+
+### Plugins
+
 - **Mail** - Use `wp_mail()` instead of PHP `mail()` function.
+- **Inputs** - Sanitize/escape all inputs and outputs to prevent Cross-Site Scripting (XSS) problems.
+- **Nonces** - Use when expecting user submitted data to protect against Cross-Site Request Forgery (CSRF).
+- **Data Validation** - Use JavaScript, built-in PHP functions, core WordPress functions, and/or custom functions to validate inputs before processing.
+- **Cache DOM Queries** - Cache jQuery selectors for re-use on page.
+- **Event Delegation** - Reduce individual element event handling by using event delegation instead.
+- **Deactivate / Uninstall Hooks** - Implement to cleanup data.
+- **Prefix** - Add plugin-specific prefix to variables, functions, and classes.
+- **Folder Structure** - Separate into includes, admin, and public folders.
+- **Roles and Rights** - Verify authentication and authorization of user.
 
 ### Themes
 
 - **Child Themes** - Create child theme if modifiying existing theme allows for child themes and changes are not extensive.
 
-- **File Structure** - Segment into include, asset, and template parts folders. 
+- **File Structure** - Separate into include, asset, and template parts folders. 
 
 - **Template Tags** - Instead of hardcoding, use template tags and conditional tags as much as possible.
 
@@ -152,6 +171,8 @@ ___
 - **Enqueue JavaScript** - Use `wp_enqueue_scripts` and template tags for directory paths instead of hardcoding links to JavaScript files.
 
 - **File Naming** - Use standard WordPress naming hierarchy. 
+
+- **Theme Unit Test** - Use WordPress Theme Unit Test to visually inspect and test theme and test using Theme Check plugin.
 
 - **Screenshot** - Create screenshot with look and feel of theme.
 
@@ -178,14 +199,9 @@ ___
 ### Best Practices
 * **HTTPS** - Use HTTPS.
 * **HSTS** - Set HTTP Strict Transport Security parameter on web server.
-* **Cross Site Request Forgery (CSRF)** - Scrub and verify inputs, verify headers and use tokens.
-* **Cross Site Scripting (XSS)** -  Minimize attack vectors and SQL injection by sanitizing input data and tracking logins and sessions.
-* **Encryption** - Hash and encrypt passwords, credit card numbers, cookies, etc.
 * **Password Reset** - Set password rules and flow on all authentication pages like Registration, forgot password, change password.
 * **Login Limits** - Require ‘human’ verification after a defined number of failed tries.
 * **System Information** - Verify application, server, or database version or connection information not publicly viewable.
-* **Roles and Rights** - Verify authentication and authorization process.
-* **Address Bar** - Only show encrypted session values in address bar.
 * **SSL** - Verify certificate not expiring. 
 
 ___
