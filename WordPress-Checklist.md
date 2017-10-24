@@ -1,9 +1,10 @@
 # WordPress Checklist
 
-## SETUP
+## Setup
 
 ### Best Practices
 
+* **Development Environment** - Create an environment to prototype and build the website.
 * **Install Folder** - Place WordPress files in web server accessible folder.
 * **Web Server Configuration** - Point to root WordPress folder. URL should not contain 'WordPress' anywhere.
 * **Database Table Prefix** - Change from wp_. 
@@ -12,23 +13,28 @@
 * **Themes** - Remove unused themes. 
 * **Version** - Remove generator meta in header. 
 * **Admin Account** - Rename from admin.
-* **Security Key** - Change from default. 
+* **Security Keys & Salts** - Change from default. 
 * **Admin URL** - Change from default. 
 * **Default Content** - Remove default posts, comments, and pages.
 * **Default Date / Time** - Set in Settings > General.
 * **Default Blog Category** - Change from uncategorized.
-* **Media Settings** - Set to month and year or appropriate file structure needed.
+* **Media Settings** - Set to month and year or appropriate file path.
 * **Permalinks** - Set to post name or appropriate URL structure.
 * **Site Title** - Set to proper website title.
+* **Site Tag** - Set to proper website tagline.
+* **Admin Email** - Update to someone on web development team. This is not the same as admin user account.
 * **Memory Limit** - Set memory limit to maximum allowed by server or web host.
 * **Auto Save** - Set number of seconds between auto-saves.
 * **Multisite** - Enable if needed.
 * **Debug Flag**- Enable during development
 * **Cache** - Disable during development
+* **Search Engine Visibility** - Disable development environment from being crawled by seach engines.
+* **Sample Config File** - Remove wp-config-sample.php.
+* **Version Control** - Set up repository to store and track files and changes.
 
 ---
 
-## Theme
+## Theme Design
 
 ### Best Practices
 
@@ -37,7 +43,7 @@
 
 
 
-## HTML
+## Theme HTML
 
 ### Best Practices
 * **HTML5 Semantic Elements** -  Use HTML5 semantic elements appropriately.
@@ -69,7 +75,7 @@
 
 ___
 
-## Fonts
+## Theme Fonts
 ### Best Practices
 * **Webfont Formats** -  Convert fonts to WOFF, WOFF2 and TTF file formats.
 * **Fall-back Typefaces** -  List 2 or more in case desired fonts not available.
@@ -77,7 +83,7 @@ ___
 
 ___
 
-## CSS
+## Theme CSS
 ### Best Practices
 * **Preprocessors** -  Remove links to intermediary preprocessor files. 
 * **Breakpoints** - Check content, flow, and UX work as intended at different breakpoints.
@@ -87,6 +93,10 @@ ___
 * **JavaScript Prefix** -  Name classes or IDs with **js-** when modified by JavaScript and not by CSS files.
 * **Inline / Embedded CSS** -  Remove or minimize embedded or inline CSS.
 * **Vendor Prefixes** -  Use CSS vendor prefixes depending on required browser support compatibility.
+* **File Layout** - Order of properties display > positioning > box model > colors and typography > other.
+* **Media Queries** - Place at bottom of stylesheet.
+* **Magic Numbers** - Avoid.
+* **Main Stylesheet Header** - Include theme name, author, description, version, license, license URI, and text domain.
 
 ### Performance
 * **Concatenation** -  Concatenate CSS files.
@@ -99,7 +109,7 @@ ___
 
 ___
 
-## Images / Videos
+## Theme Images / Videos
 ### Best Practices
 * **Placeholder Images** - Replace with real images.
 * **Stock Images** - Replace stock watermarked images replaced with licensed versions. 
@@ -119,9 +129,38 @@ ___
 ### Best Practices
 * **Text** - Replace all Lorem Ipsum with real copy.
 
-___
+------
 
-## JavaScript
+## Coding
+
+### Best Practices
+
+- **Core Files** - Never modify any WordPress core files.
+- **Database Queries** - Don't use `mysqli_query()` instead use `$wpdb` object or `WP_Query`.
+- **Mail** - Use `wp_mail()` instead of PHP `mail()` function.
+
+### Themes
+
+- **Child Themes** - Create child theme if modifiying existing theme allows for child themes and changes are not extensive.
+
+- **File Structure** - Segment into include, asset, and template parts folders. 
+
+- **Template Tags** - Instead of hardcoding, use template tags and conditional tags as much as possible.
+
+- **Enqueue Stylesheets** - Use `wp_enqueue_style` and template tags for directory paths instead of hardcoding links to CSS files.
+
+- **Enqueue JavaScript** - Use `wp_enqueue_scripts` and template tags for directory paths instead of hardcoding links to JavaScript files.
+
+- **File Naming** - Use standard WordPress naming hierarchy. 
+
+- **Screenshot** - Create screenshot with look and feel of theme.
+
+  ​
+
+------
+
+## Theme JavaScript
+
 ### Best Practices
 * **JavaScript Inline** -  Remove or minimize inline JavaScript.
 * **Concatenation** -   Concatenate Javascript files.
@@ -166,7 +205,6 @@ ___
 
 ## SEO
 ### Best Practices
-* **Indexing** - Enable search engines to index site.
 * **Tag Manager** - Set up and verify data passing to tools.
 * **Analytics & Conversion** -  Google Analytics and similar tools installed,correctly configured, and registering data. 
 * **Exclude IPs** - Remove office or home IPs from analytics and conversion tools.
@@ -175,6 +213,7 @@ ___
 * **A/B Tests**: Verify installation, configuration, and data flow to third party tools.
 * **Chat** - Verify installation, configuration, and data flow to third party tool.
 * **Sitemap XML** - Install plugin to auto-generate and submit of site, image, and video XMLs to Google Webmaster Tools and similar tools
+* **Google Webmaster Tools** - Verify no errors noted by WMT or similar tools.
 * **robots.txt** - Verify robots.txt not blocking any pages.
 * **Structured Data or Rich Snippets** -  Generate error-free structured data as needed.
 * **Title** -  Use unique title tag used on each page.
@@ -194,10 +233,10 @@ ___
 
 ___
 
-## Prelaunch
+## Pre-Launch
 ### Best Practices
 * **.htaccess** - Set with appropriate settings. 
-* **Backups** - Check backup and restore systems functional.
+* **Backups** - Check backup and restore systems functional. Fully backup old site if one exists.
 * **Versioning** - Branch or tag production code in version control system.
 * **Contact Forms** - Set CAPTCHA functionality, required fields, validation, and verify information emailed or routed to CRM.
 * **Newsletter Forms** Check signup forms functionality and verify user information pushed to third-party tool. 
@@ -215,9 +254,24 @@ ___
 * **Plugin / Theme Auto-Updates** - Update username / API keys.
 * **Gravatars** - Set up user accounts with Gravatars.
 * **Pagination** - Verify 'next' and 'previous' display right content in respective categories.
-* **Folder and File Permissions** - Verify folder contents are not viewable and individual files cannot be downloaded. 
-* **Spam Protection** - Enable Akismet plugin.
+* **Folder and File Permissions** - Verify folder contents are not viewable and individual PHP files cannot be downloaded. 
+* **Upload Permissions** - Verify images and attachments can be uploaded via backend and downloaded by non-logged in users. 
+* **Spam Protection** - Enable Akismet plugin and delete old spam comments.
 * **Post Revisions** - Limit number of post revisions saved.
 * **Trash** - Set number of days when deleted content can be removed from database.
 * **Cache** - Enable default WordPress caching or a third-party plugin
 
+
+- **Admin Email** - Set to individual responsible for website post-launch.
+- **Search Engine Visibility** - Enable search engines to index site.
+
+------
+
+## Post-Launch
+
+### Best Practices
+
+- **Update Files** - Set auto-update for core, themes, and plugins or create monthly or quarter plan to test and roll out updates, especially if custom functionality was built for the website. 
+- **Documentation** - Compile website, webhost, S/FTP, and social logins, along with expiration dates on third-party services, SSL, stock photography, etc, and share with appropriate individuals.
+- **Error Logs** - Check web server logs for PHP errors on a regularly scheduled basis. 
+- **Version Control** - Transfer ownership of repository to client if necessary.
