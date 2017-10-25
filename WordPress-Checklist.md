@@ -86,6 +86,8 @@
 - **'$content_width'** - Set.
 
 
+---
+
 ## Theme HTML
 
 ### Best Practices
@@ -280,7 +282,7 @@ ___
 * **Trash** - Set number of days when deleted content can be removed from database.
 * **Cache** - Enable default WordPress caching or a third-party plugin.
 * **Admin Email** - Set to individual responsible for website post-launch.
-- **Search Engine Visibility** - Enable search engines to index site.
+* **Search Engine Visibility** - Enable search engines to index site.
 
 ------
 
