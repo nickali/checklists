@@ -168,19 +168,3 @@ ___
 * **Conversions & Funnels** - Set analytics tools to collect visitor clickstream.
 * **Payment System** - Turn off test mode off and transactions work. 
 * **www / non-www** - Set non-canonical to redirect to canonical and preserving URL. 
-
-___
-
-## WordPress
-### Best Practices
-* **.htaccess** - Set with appropriate settings. 
-* **Navigation** - Set navigation and sub menus to always be accessible.
-* **Pagination** - Set next and previous links go to right content
-* **Database Table Prefix** - Change from wp_. 
-* **Plugins** - Remove unused plugins. 
-* **Themes** - Remove unused themes. 
-* **Version** - Remove generator meta in header. 
-* **Admin Account** - Rename from admin.
-* **Security Key** - Change from default. 
-* **Admin URL** - Change from default. 
-* **Default Content** - Remove default posts, comments, and pages.
